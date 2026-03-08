@@ -21,17 +21,17 @@ const profiles = [
 
 function Hero() {
   return (
-    <section id="home" className="relative bg-gradient-to-br from-brand-gold-light/60 via-brand-surface to-brand-red/5 py-24 md:py-32 overflow-hidden">
+    <section id="home" className="relative bg-gradient-to-br from-brand-gold-light/60 via-brand-surface to-brand-red/5 pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden scroll-mt-28">
       {/* Decorative Blur Backgrounds based on Logo colors */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-gold/20 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-blue/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-2000"></div>
       <div className="absolute -bottom-32 left-20 w-96 h-96 bg-brand-red/10 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000"></div>
 
-      <div className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-5 z-0">
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-5 z-0 overflow-hidden">
         <img
           src={emblem}
           alt="Ashoka Emblem watermark"
-          className="w-72 md:w-96 lg:w-[32rem]"
+          className="w-48 md:w-64 lg:w-96 max-h-[90%] object-contain"
         />
       </div>
 
@@ -39,17 +39,17 @@ function Hero() {
         {/* LEFT SECTION (Profiles & Stats) */}
         <div className="order-2 lg:order-1 flex flex-col items-center lg:items-start gap-8">
           <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl shadow-brand-blue/5 p-6 border border-white max-w-sm w-full transform hover:scale-105 transition duration-500">
-             <div className="flex items-center gap-4">
-                <div className="h-16 w-16 bg-gradient-to-br from-brand-gold to-yellow-300 rounded-full flex items-center justify-center text-brand-blue-dark font-extrabold text-2xl shadow-inner border border-brand-gold-light">
-                  50+
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 text-lg">Selections Every Year</h3>
-                  <p className="text-gray-600 text-sm">Consistent results in UPSC</p>
-                </div>
-             </div>
+            <div className="flex items-center gap-4">
+              <div className="h-16 w-16 bg-gradient-to-br from-brand-gold to-yellow-300 rounded-full flex items-center justify-center text-brand-blue-dark font-extrabold text-2xl shadow-inner border border-brand-gold-light">
+                50+
+              </div>
+              <div>
+                <h3 className="font-bold text-gray-900 text-lg">Selections Every Year</h3>
+                <p className="text-gray-600 text-sm">Consistent results in UPSC</p>
+              </div>
+            </div>
           </div>
-          
+
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full justify-center">
             {profiles.map((p) => (
               <div
@@ -77,7 +77,7 @@ function Hero() {
             </span>
             New Batch Starts Sept 15th
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
             Shape Your Destiny With <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-red-dark drop-shadow-sm">Kartavya</span>{" "}
@@ -97,15 +97,15 @@ function Hero() {
               Watch Demo
             </button>
           </div>
-          
+
           <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 lg:gap-8 text-sm text-gray-700 font-bold flex-wrap">
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-brand-gold/30 shadow-sm">
-               <svg className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-               Offline / Hybrid
+              <svg className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
+              Offline / Hybrid
             </div>
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-brand-gold/30 shadow-sm">
-               <svg className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
-               Live Online
+              <svg className="w-5 h-5 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
+              Live Online
             </div>
           </div>
         </div>
