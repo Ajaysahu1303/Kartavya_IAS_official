@@ -1,43 +1,43 @@
 import React from 'react';
-
+import founderImage from '../Assets/Founder.png';
 function Founder() {
   return (
     <section id="founder" className="py-24 bg-[#001740] text-white overflow-hidden relative">
       {/* Background Ornaments based on Brand Gold and Red */}
       <div className="absolute top-0 right-0 -m-32 w-96 h-96 opacity-10 transform translate-x-16 -translate-y-16">
-         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path fill="var(--color-brand-gold)" d="M47.7,-68.8C59.6,-57.8,65.6,-38.7,69.5,-19.9C73.4,-1.2,75.1,17.2,68.7,33.1C62.3,49,47.8,62.5,31.2,70.5C14.7,78.5,-3.9,81,-23,76.9C-42.1,72.7,-61.7,61.8,-73.2,45.4C-84.7,29.1,-88.2,7.3,-83.4,-11.6C-78.6,-30.5,-65.4,-46.6,-49.6,-57.2C-33.8,-67.8,-15.5,-73,2,-75.4C19.5,-77.8,35.8,-79.8,47.7,-68.8Z" transform="translate(100 100)" />
-         </svg>
+        </svg>
       </div>
 
       <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-red/10 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
-        
+
         {/* Founder Portrait Section */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold to-yellow-400 rounded-3xl transform rotate-3 group-hover:rotate-6 transition duration-500 opacity-80 shadow-2xl shadow-brand-gold/20"></div>
             <div className="relative bg-[#00205b] p-2 rounded-3xl border border-brand-blue-light/50 w-full max-w-sm transform group-hover:-translate-y-2 group-hover:rotate-0 transition duration-500 z-10 shadow-2xl">
-              <div className="aspect-w-3 aspect-h-4 rounded-2xl overflow-hidden bg-white shadow-inner relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001740]/80 via-transparent to-transparent z-10"></div>
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-white shadow-inner relative z-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#001740]/80 via-transparent to-transparent z-10 pointer-events-none"></div>
                 {/* Real photo of the founder should replace this generic one */}
-                <img 
-                  src="https://randomuser.me/api/portraits/men/50.jpg" 
-                  alt="Founder of Kartavya IAS" 
-                  className="w-full h-full object-cover sepia-[0.3] group-hover:sepia-0 group-hover:scale-105 transition-all duration-700"
+                <img
+                  src={founderImage}
+                  alt="Founder of Kartavya IAS"
+                  className="w-full h-full object-cover object-top sepia-[0.3] group-hover:sepia-0 group-hover:scale-105 transition-all duration-700"
                 />
               </div>
 
               {/* Founder Name Tag */}
-              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 rounded-2xl px-8 py-4 shadow-2xl border-b-4 border-brand-red flex flex-col items-center min-w-[85%] transition-transform duration-500 group-hover:-translate-y-1">
-                <span className="text-2xl font-black whitespace-nowrap text-brand-blue-dark">Dr. Ajay Kumar</span>
+              <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white text-gray-900 rounded-2xl px-8 py-4 shadow-2xl border-b-4 border-brand-red flex flex-col items-center min-w-[85%] transition-transform duration-500 group-hover:-translate-y-1 z-0">
+                <span className="text-2xl font-black whitespace-nowrap text-brand-blue-dark">Dr.Kumar Mayank</span>
                 <span className="text-brand-red text-xs font-bold uppercase tracking-widest mt-1">Founder & Director</span>
               </div>
             </div>
-            
+
             <div className="absolute -left-12 -top-12 z-0 animate-pulse">
-               <svg className="w-24 h-24 text-brand-gold/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
+              <svg className="w-24 h-24 text-brand-gold/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
             </div>
           </div>
         </div>
@@ -58,50 +58,50 @@ function Founder() {
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
             {/* Doctorate Highlight */}
             <div className="bg-[#002670]/40 backdrop-blur-md border border-brand-blue/50 rounded-2xl p-6 hover:bg-[#0033a0]/80 hover:border-brand-gold/50 transition duration-300 group shadow-lg">
-               <div className="w-14 h-14 bg-brand-red/20 text-brand-red-light rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300 group-hover:bg-brand-red group-hover:text-white shadow-inner">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"></path></svg>
-               </div>
-               <h4 className="text-xl font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">Doctorate in Economy</h4>
-               <p className="text-brand-surface/60 text-sm leading-relaxed">Deep command over India’s economic framework, directly aligning with core UPSC civil service subjects.</p>
+              <div className="w-14 h-14 bg-brand-red/20 text-brand-red-light rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300 group-hover:bg-brand-red group-hover:text-white shadow-inner">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0v6"></path></svg>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">Doctorate in Economy</h4>
+              <p className="text-brand-surface/60 text-sm leading-relaxed">Deep command over India’s economic framework, directly aligning with core UPSC civil service subjects.</p>
             </div>
 
             {/* Awards Highlight */}
             <div className="bg-[#002670]/40 backdrop-blur-md border border-brand-blue/50 rounded-2xl p-6 hover:bg-[#0033a0]/80 hover:border-brand-gold/50 transition duration-300 group shadow-lg">
-               <div className="w-14 h-14 bg-brand-gold/20 text-brand-gold rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300 group-hover:bg-brand-gold group-hover:text-[#001740] shadow-inner">
-                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-               </div>
-               <h4 className="text-xl font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">Renowned Awardee</h4>
-               <p className="text-brand-surface/60 text-sm leading-relaxed">Recognized repeatedly with prestigious national awards for exceptional contribution to education.</p>
+              <div className="w-14 h-14 bg-brand-gold/20 text-brand-gold rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition duration-300 group-hover:bg-brand-gold group-hover:text-[#001740] shadow-inner">
+                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2 group-hover:text-brand-gold transition-colors">Renowned Awardee</h4>
+              <p className="text-brand-surface/60 text-sm leading-relaxed">Recognized repeatedly with prestigious national awards for exceptional contribution to education.</p>
             </div>
           </div>
 
           {/* Branches Highlight */}
           <div className="grid sm:grid-cols-2 gap-6">
-             {/* Prayagraj Main Branch */}
-             <div className="bg-gradient-to-br from-brand-red to-brand-red-dark rounded-2xl p-6 border border-brand-red-light shadow-2xl shadow-brand-red/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
-                <div className="absolute top-0 right-0 bg-black/20 backdrop-blur-md text-white border-b border-l border-white/20 text-xs font-bold px-4 py-1.5 rounded-bl-2xl">Main Branch</div>
-                <div className="relative z-10">
-                   <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">Prayagraj</h4>
-                   <p className="text-brand-surface/90 text-sm mb-6 leading-relaxed">The historic core and main hub of our civil services preparation excellence.</p>
-                </div>
-                <button className="bg-white text-brand-red-dark hover:bg-brand-surface font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">
-                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                   Visit Main Branch
-                </button>
-             </div>
+            {/* Prayagraj Main Branch */}
+            <div className="bg-gradient-to-br from-brand-red to-brand-red-dark rounded-2xl p-6 border border-brand-red-light shadow-2xl shadow-brand-red/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
+              <div className="absolute top-0 right-0 bg-black/20 backdrop-blur-md text-white border-b border-l border-white/20 text-xs font-bold px-4 py-1.5 rounded-bl-2xl">Main Branch</div>
+              <div className="relative z-10">
+                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">Prayagraj</h4>
+                <p className="text-brand-surface/90 text-sm mb-6 leading-relaxed">The historic core and main hub of our civil services preparation excellence.</p>
+              </div>
+              <button className="bg-white text-brand-red-dark hover:bg-brand-surface font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Visit Main Branch
+              </button>
+            </div>
 
-             {/* New Delhi Branch */}
-             <div className="bg-gradient-to-br from-[#004eb8] to-[#0033a0] rounded-2xl p-6 border border-brand-blue-light/50 shadow-2xl shadow-brand-blue/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
-                <div className="absolute top-0 right-0 bg-black/20 text-brand-gold-light border-b border-l border-white/10 text-xs font-bold px-4 py-1.5 rounded-bl-2xl backdrop-blur-md">New Hub</div>
-                <div className="relative z-10">
-                   <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">New Delhi</h4>
-                   <p className="text-brand-surface/80 text-sm mb-6 leading-relaxed">Operating right from the heart of India's current UPSC Hub!</p>
-                </div>
-                <button className="bg-brand-gold hover:bg-yellow-400 text-[#001740] font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">
-                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                   View Details
-                </button>
-             </div>
+            {/* New Delhi Branch */}
+            <div className="bg-gradient-to-br from-[#004eb8] to-[#0033a0] rounded-2xl p-6 border border-brand-blue-light/50 shadow-2xl shadow-brand-blue/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
+              <div className="absolute top-0 right-0 bg-black/20 text-brand-gold-light border-b border-l border-white/10 text-xs font-bold px-4 py-1.5 rounded-bl-2xl backdrop-blur-md">New Hub</div>
+              <div className="relative z-10">
+                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">New Delhi</h4>
+                <p className="text-brand-surface/80 text-sm mb-6 leading-relaxed">Operating right from the heart of India's current UPSC Hub!</p>
+              </div>
+              <button className="bg-brand-gold hover:bg-yellow-400 text-[#001740] font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                View Details
+              </button>
+            </div>
           </div>
 
         </div>

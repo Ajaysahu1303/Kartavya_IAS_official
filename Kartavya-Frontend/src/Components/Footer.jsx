@@ -11,7 +11,7 @@ function Footer() {
         {/* Brand Column */}
         <div className="lg:pr-8">
           <div className="flex items-center gap-2 mb-6">
-            <img src={logo} className="w-10 h-10 drop-shadow-md brightness-0 invert opacity-90" alt="Kartavya IAS Logo" />
+            <img src={logo} className="w-15 h-20 drop-shadow-md brightness-100" alt="Kartavya IAS Logo" />
             <h2 className="font-black text-2xl tracking-tight text-white">Kartavya <span className="text-brand-red-light">IAS</span></h2>
           </div>
           <p className="text-brand-surface/70 text-sm leading-relaxed mb-6">

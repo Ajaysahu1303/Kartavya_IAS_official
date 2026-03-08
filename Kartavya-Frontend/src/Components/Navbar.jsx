@@ -6,7 +6,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-3">
 
         <div className="flex items-center gap-3 group cursor-pointer">
-          <img src={logo} className="w-12 h-12 transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md" alt="Kartavya IAS Logo"/>
+          <img src={logo} className="w-15 h-20 transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md" alt="Kartavya IAS Logo" />
           <h1 className="font-extrabold text-2xl tracking-tight">
             <span className="text-brand-red drop-shadow-sm">Kartavya</span> <span className="text-brand-blue drop-shadow-sm">IAS</span>
           </h1>
