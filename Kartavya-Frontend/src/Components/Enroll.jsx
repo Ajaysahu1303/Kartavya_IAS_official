@@ -19,7 +19,7 @@ function Enroll() {
     setStatus({ loading: true, success: false, error: null });
 
     try {
-      const response = await fetch('http://localhost:5000/api/enroll', {
+      const response = await fetch('https://kartavya-ias-official-e2mj.vercel.app/api/enroll', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
