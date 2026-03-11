@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import enrollRoutes from './routes/enrollRoutes.js';
-import currentAffairsRoutes from './routes/currentAffairsRoutes.js';
+
 
 // Connect to database
 // You can uncomment this once your MongoDB is ready
@@ -19,7 +19,7 @@ app.use(cors());
 
 // Mount routers
 app.use('/api/enroll', enrollRoutes);
-app.use('/api/current-affairs', currentAffairsRoutes);
+
 
 // Base route
 app.get('/', (req, res) => {

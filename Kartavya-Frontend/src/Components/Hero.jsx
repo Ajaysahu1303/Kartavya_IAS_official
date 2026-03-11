@@ -92,10 +92,10 @@ function Hero() {
             <button className="bg-gradient-to-r from-brand-red to-brand-red-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 hover:-translate-y-1 transform transition duration-300">
               Explore Courses
             </button>
-            <button className="bg-white text-brand-blue-dark border-2 border-brand-blue/10 font-bold py-3.5 px-8 rounded-full shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue hover:-translate-y-1 transform transition duration-300 flex items-center justify-center gap-2 group">
+            <a href="https://www.youtube.com/watch?v=pmmLK6qCG7c" target="_blank" rel="noopener noreferrer" className="bg-white text-brand-blue-dark border-2 border-brand-blue/10 font-bold py-3.5 px-8 rounded-full shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue hover:-translate-y-1 transform transition duration-300 flex items-center justify-center gap-2 group">
               <svg className="w-5 h-5 text-brand-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               Watch Demo
-            </button>
+            </a>
           </div>
 
           <div className="mt-10 flex items-center justify-center lg:justify-start gap-6 lg:gap-8 text-sm text-gray-700 font-bold flex-wrap">

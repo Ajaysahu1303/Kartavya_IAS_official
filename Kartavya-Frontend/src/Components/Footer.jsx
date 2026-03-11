@@ -35,7 +35,7 @@ function Footer() {
             Quick Links
           </h3>
           <ul className="text-brand-surface/70 space-y-3 font-medium">
-            <li><a href="#home" className="hover:text-brand-gold transition-colors inline-flex items-center gap-2"><svg className="w-3 h-3 text-brand-red opacity-0 -translate-x-2 transition-all"><path fill="currentColor" d="M0 0h24v24H0z" /></svg>Home</a></li>
+            <li><a href="#home" className="hover:text-brand-gold transition-colors">Home</a></li>
             <li><a href="#about" className="hover:text-brand-gold transition-colors">About Us</a></li>
             <li><a href="#founder" className="hover:text-brand-gold transition-colors">Founder's Vision</a></li>
             <li><a href="#enroll" className="hover:text-brand-gold transition-colors">Enrollment</a></li>
@@ -65,7 +65,8 @@ function Footer() {
           <div className="space-y-4">
             <div>
               <p className="text-white font-semibold text-sm">Prayagraj (Main)</p>
-              <p className="text-brand-surface/60 text-sm mt-1 leading-relaxed">Katarniya Bagh, Civil Lines, Prayagraj, UP 211001</p>
+              <p className="text-brand-surface/60 text-sm mt-1 leading-relaxed">Front of
+                Aanand Bhawan,Katra, Prayagraj, UP 211002</p>
             </div>
             <div>
               <p className="text-white font-semibold text-sm">New Delhi</p>

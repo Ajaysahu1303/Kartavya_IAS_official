@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import academyImage from '../Assets/logo.png'; 
 
 function About() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section id="about" className="py-24 bg-white overflow-hidden relative border-y border-brand-gold-light/50">
       {/* Subtle Background Pattern */}
@@ -49,7 +51,7 @@ function About() {
             <span className="text-brand-red font-bold">Kartavya IAS</span> isn’t just a coaching institute—it’s an ecosystem of dedicated mentors, strategic learning, and disciplined preparation. We believe in nurturing raw potential and transforming it into administrative brilliance.
           </p>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-             Our methodology focuses on conceptual clarity, rigorous answer writing practice, and comprehensive current affairs analysis, laying a concrete foundation for both UPSC Prelims and Mains.
+             Our methodology focuses on conceptual clarity and rigorous answer writing practice, laying a concrete foundation for both UPSC Prelims and Mains.
           </p>
 
           <div className="space-y-4 mb-10">
@@ -74,11 +76,76 @@ function About() {
             </div>
           </div>
 
-          <button className="bg-brand-blue text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-brand-blue/30 hover:bg-brand-blue-dark hover:-translate-y-1 hover:shadow-brand-blue/50 transition-all duration-300">
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="bg-brand-blue text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-brand-blue/30 hover:bg-brand-blue-dark hover:-translate-y-1 hover:shadow-brand-blue/50 transition-all duration-300">
              Learn More About Us
           </button>
         </div>
       </div>
+
+      {/* Full Screen About Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+          <div className="relative w-full max-w-4xl bg-white rounded-3xl shadow-2xl overflow-hidden mt-10 mb-10 transform scale-100 transition-transform">
+            {/* Modal Header */}
+            <div className="bg-brand-blue-dark p-6 flex justify-between items-center sticky top-0 z-10 shadow-md">
+              <h2 className="text-2xl font-black text-white">Complete About Kartavya IAS</h2>
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="text-white hover:text-brand-red transition-colors bg-white/10 rounded-full p-2"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+            </div>
+            
+            {/* Modal Body */}
+            <div className="p-8 md:p-10 max-h-[70vh] overflow-y-auto text-gray-700 bg-brand-surface">
+              <div className="flex justify-center mb-10">
+                <div className="bg-white p-6 rounded-3xl shadow-lg border border-brand-gold-light/50">
+                  <img src={academyImage} alt="Kartavya IAS Academy" className="h-32 object-contain" />
+                </div>
+              </div>
+              
+              <h3 className="text-2xl font-bold text-brand-blue-dark mb-4 border-b-2 border-brand-gold inline-block pb-1">Our History</h3>
+              <p className="mb-8 text-lg leading-relaxed">
+                Kartavya IAS was founded with a singular vision: to provide premier coaching to dedicated civil service aspirants. Over the past 10+ years, we have grown from a small study circle into a leading institution, consistently producing top-ranked officers in the UPSC examinations. Our journey is defined by the absolute focus on quality education, transparent mentorship, and an environment that fosters intellectual growth.
+              </p>
+
+              <h3 className="text-2xl font-bold text-brand-blue-dark mb-4 border-b-2 border-brand-gold inline-block pb-1">Our Core Values</h3>
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-brand-gold/20">
+                  <strong className="text-brand-red text-lg block mb-1">Integrity</strong>
+                  <p className="text-sm">Honest guidance and realistic goal-setting for every single student.</p>
+                </div>
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-brand-gold/20">
+                  <strong className="text-brand-red text-lg block mb-1">Excellence</strong>
+                  <p className="text-sm">A relentless pursuit of perfection in our teaching methodology and study materials.</p>
+                </div>
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-brand-gold/20">
+                  <strong className="text-brand-red text-lg block mb-1">Dedication</strong>
+                  <p className="text-sm">Commitment to staying updated with the dynamic UPSC syllabus and pattern changes.</p>
+                </div>
+                <div className="bg-white p-5 rounded-xl shadow-sm border border-brand-gold/20">
+                  <strong className="text-brand-red text-lg block mb-1">Inclusivity</strong>
+                  <p className="text-sm">Ensuring quality education is accessible to aspirants from all diverse backgrounds.</p>
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-bold text-brand-blue-dark mb-4 border-b-2 border-brand-gold inline-block pb-1">Why Choose Us?</h3>
+              <p className="mb-8 text-lg leading-relaxed">
+                Unlike generic coaching centers, Kartavya IAS focuses heavily on <span className="text-brand-blue font-semibold">Answer Writing</span> and <span className="text-brand-blue font-semibold">Conceptual Clarity</span> right from day one. Our <strong>Expert Faculty</strong> includes retired bureaucrats, seasoned subject matter experts, and previous years' toppers. Furthermore, our state-of-the-art libraries, offline+hybrid mode of teaching, and personalized mentorship ensure that each student’s unique strengths are amplified, and weaknesses are addressed promptly.
+              </p>
+              
+              <div className="bg-gradient-to-r from-brand-blue to-brand-blue-dark p-8 rounded-2xl shadow-xl text-center relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-brand-gold/20 rounded-full blur-2xl"></div>
+                <p className="text-2xl font-extrabold text-white relative z-10 italic">"Your Success is Our Duty (Kartavya)."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

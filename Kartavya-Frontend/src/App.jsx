@@ -1,7 +1,7 @@
 import Navbar from "./Components/Navbar";
 import Hero from "./Components/Hero";
 import Courses from "./Components/Courses";
-import CurrentAffairs from "./Components/CurrentAffairs";
+
 import About from "./Components/About";
 import Founder from "./Components/Founder";
 import Enroll from "./Components/Enroll";
@@ -14,7 +14,6 @@ function App() {
       <main>
         <Hero />
         <Courses />
-        <CurrentAffairs />
         <About />
         <Founder />
         <Enroll />

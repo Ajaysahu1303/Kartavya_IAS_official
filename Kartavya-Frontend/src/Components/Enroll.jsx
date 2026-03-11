@@ -52,7 +52,7 @@ function Enroll() {
         <div className="bg-white rounded-3xl shadow-2xl flex flex-col lg:flex-row overflow-hidden border border-gray-100/50">
 
           {/* Left Column - The Pitch & Trust Signals */}
-          <div className="lg:w-5/12 bg-gradient-to-br from-[#002670] to-[#001740] p-10 lg:p-14 text-white relative flex flex-col justify-between">
+          <div className="lg:w-5/12 bg-gradient-to-br from-[#002670] to-[#001740] p-6 sm:p-10 lg:p-14 text-white relative flex flex-col justify-between">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red rounded-full mix-blend-screen filter blur-[80px] opacity-40 pointer-events-none"></div>
 
             <div className="relative z-10">
@@ -71,7 +71,7 @@ function Enroll() {
                   </div>
                   <div>
                     <p className="text-xs text-brand-surface/60 font-medium uppercase tracking-wider">Direct Helpline</p>
-                    <p className="font-bold text-lg">+91 98765 43210</p>
+                    <p className="font-bold text-base sm:text-lg">+91 98765 43210</p>
                   </div>
                 </div>
 
@@ -79,9 +79,9 @@ function Enroll() {
                   <div className="w-12 h-12 rounded-full bg-brand-blue border border-brand-blue-light flex items-center justify-center text-brand-gold">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-xs text-brand-surface/60 font-medium uppercase tracking-wider">Email Us</p>
-                    <p className="font-bold text-lg">admissions@kartavyaias.com</p>
+                    <p className="font-bold text-base sm:text-lg break-all">admissions@kartavyaias.com</p>
                   </div>
                 </div>
               </div>
@@ -103,8 +103,8 @@ function Enroll() {
           </div>
 
           {/* Right Column - The Enrollment / Enquiry Form */}
-          <div className="lg:w-7/12 p-10 lg:p-14 bg-white relative">
-            <h3 className="text-2xl font-black text-gray-900 mb-2">Request a Callback</h3>
+          <div className="lg:w-7/12 p-6 sm:p-10 lg:p-14 bg-white relative">
+            <h3 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2">Request a Callback</h3>
             <p className="text-gray-500 text-sm mb-8 font-medium">Please fill in your details, and our admission team will get back to you shortly.</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
