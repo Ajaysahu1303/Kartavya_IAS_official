@@ -49,10 +49,10 @@ function Footer() {
             Offerings
           </h3>
           <ul className="text-brand-surface/70 space-y-3 font-medium">
-            <li className="hover:text-white transition-colors cursor-pointer">UPSC GS Foundation</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Prelims Test Series</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Mains Answer Writing</li>
-            <li className="hover:text-white transition-colors cursor-pointer">Optional Subject Experts</li>
+            <li><a href="#course-1" className="hover:text-white transition-colors cursor-pointer block">UPSC GS Foundation</a></li>
+            <li><a href="#course-2" className="hover:text-white transition-colors cursor-pointer block">Prelims Test Series</a></li>
+            <li><a href="#course-4" className="hover:text-white transition-colors cursor-pointer block">Mains Answer Writing</a></li>
+            <li><a href="#course-5" className="hover:text-white transition-colors cursor-pointer block">Optional Subject Experts</a></li>
           </ul>
         </div>
 

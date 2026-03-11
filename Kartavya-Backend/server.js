@@ -3,11 +3,12 @@ import express from 'express';
 import cors from 'cors';
 import connectDB from './config/db.js';
 import enrollRoutes from './routes/enrollRoutes.js';
+import videoRoutes from './routes/videoRoutes.js';
+import adminRoutes from './routes/adminRoutes.js';
 
 
 // Connect to database
-// You can uncomment this once your MongoDB is ready
-// connectDB();
+connectDB();
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.use(cors());
 
 // Mount routers
 app.use('/api/enroll', enrollRoutes);
+app.use('/api/videos', videoRoutes);
+app.use('/api/admin', adminRoutes);
 
 
 // Base route

@@ -1,0 +1,25 @@
+import Navbar from "../Components/Navbar";
+import Hero from "../Components/Hero";
+import Courses from "../Components/Courses";
+import About from "../Components/About";
+import Founder from "../Components/Founder";
+import Enroll from "../Components/Enroll";
+import Footer from "../Components/Footer";
+
+function HomePage() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <Courses />
+        <About />
+        <Founder />
+        <Enroll />
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+export default HomePage;

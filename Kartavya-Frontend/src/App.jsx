@@ -1,25 +1,18 @@
-import Navbar from "./Components/Navbar";
-import Hero from "./Components/Hero";
-import Courses from "./Components/Courses";
-
-import About from "./Components/About";
-import Founder from "./Components/Founder";
-import Enroll from "./Components/Enroll";
-import Footer from "./Components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import DemoPage from "./Pages/DemoPage";
+import NotFound from "./Pages/NotFound";
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Courses />
-        <About />
-        <Founder />
-        <Enroll />
-      </main>
-      <Footer />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/demo" element={<DemoPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
+
 export default App;

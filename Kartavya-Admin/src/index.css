@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #002670;
+  --color-brand-blue-dark: #001740;
+  --color-brand-blue-light: #0050c8;
+  --color-brand-red: #c62828;
+  --color-brand-red-dark: #8e0000;
+  --color-brand-red-light: #ff5f52;
+  --color-brand-gold: #d4a017;
+  --color-brand-gold-light: #f5d76e;
+  --color-brand-surface: #f8f9fa;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}

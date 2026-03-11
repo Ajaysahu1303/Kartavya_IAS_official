@@ -24,7 +24,7 @@ function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href="#enroll" className="hidden sm:inline-block bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold px-5 py-2 md:px-6 md:py-2.5 rounded-full shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 hover:-translate-y-0.5 transform transition-all duration-300">
+          <a href="#courses" className="hidden sm:inline-block bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold px-5 py-2 md:px-6 md:py-2.5 rounded-full shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 hover:-translate-y-0.5 transform transition-all duration-300">
             Enroll Now
           </a>
           
@@ -55,7 +55,7 @@ function Navbar() {
             <a href="#founder" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Founder</a>
             <a href="#enroll" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Contact</a>
             
-            <a href="#enroll" onClick={() => setIsOpen(false)} className="sm:hidden text-center mt-2 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold px-6 py-3 rounded-full shadow-lg">
+            <a href="#courses" onClick={() => setIsOpen(false)} className="sm:hidden text-center mt-2 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold px-6 py-3 rounded-full shadow-lg">
               Enroll Now
             </a>
           </div>
