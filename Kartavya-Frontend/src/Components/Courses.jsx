@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-const courses = [
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+
+const localCourses = [
   {
     id: 1,
     title: "UPSC CSE Foundation",
@@ -99,7 +101,9 @@ const courses = [
 ];
 
 function Courses() {
+  const [courses, setCourses] = useState(localCourses);
   const [selectedCourse, setSelectedCourse] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // State for WhatsApp Lead Form
   const [showLeadForm, setShowLeadForm] = useState(false);
@@ -130,11 +134,29 @@ function Courses() {
   };
 
   useEffect(() => {
+    const fetchCourses = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`${API_BASE}/api/courses`);
+        const data = await res.json();
+        if (data.success && data.data && data.data.length > 0) {
+          setCourses(data.data);
+        }
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchCourses();
+  }, []);
+
+  useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash && hash.startsWith('#course-')) {
-        const courseId = parseInt(hash.replace('#course-', ''), 10);
-        const matchingCourse = courses.find((c) => c.id === courseId);
+        const courseId = hash.replace('#course-', '');
+        const matchingCourse = courses.find((c) => (c.id?.toString() === courseId || c._id === courseId));
         if (matchingCourse) {
           setSelectedCourse(matchingCourse);
         }
@@ -147,7 +169,7 @@ function Courses() {
     return () => {
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, []);
+  }, [courses]);
 
   const closeModal = () => {
     setSelectedCourse(null);
@@ -179,7 +201,7 @@ function Courses() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {courses.map((course) => (
-            <div key={course.id} id={`course-${course.id}`} className={`relative bg-white rounded-3xl shadow-xl border overflow-hidden hover:-translate-y-2 transform transition-all duration-300 flex flex-col group ${course.popular ? 'border-brand-gold shadow-brand-gold/20' : 'border-gray-200 hover:border-brand-blue shadow-brand-blue/5'}`}>
+            <div key={course._id || course.id} id={`course-${course._id || course.id}`} className={`relative bg-white rounded-3xl shadow-xl border overflow-hidden hover:-translate-y-2 transform transition-all duration-300 flex flex-col group ${course.popular ? 'border-brand-gold shadow-brand-gold/20' : 'border-gray-200 hover:border-brand-blue shadow-brand-blue/5'}`}>
 
               {/* Card Header Gradient */}
               <div className={`h-2 w-full ${course.popular ? 'bg-gradient-to-r from-brand-gold to-yellow-400' : 'bg-gradient-to-r from-brand-blue to-brand-blue-dark'}`}></div>

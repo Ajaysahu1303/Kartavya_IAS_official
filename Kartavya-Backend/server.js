@@ -5,6 +5,10 @@ import connectDB from './config/db.js';
 import enrollRoutes from './routes/enrollRoutes.js';
 import videoRoutes from './routes/videoRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import settingRoutes from './routes/settingRoutes.js';
+import courseRoutes from './routes/courseRoutes.js';
+
+
 
 
 // Connect to database
@@ -22,6 +26,10 @@ app.use(cors());
 app.use('/api/enroll', enrollRoutes);
 app.use('/api/videos', videoRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/settings', settingRoutes);
+app.use('/api/courses', courseRoutes);
+
+
 
 
 // Base route
