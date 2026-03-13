@@ -19,7 +19,8 @@ function Enroll() {
     setStatus({ loading: true, success: false, error: null });
 
     try {
-      const response = await fetch('https://kartavya-ias-official-e2mj.vercel.app/api/enroll', {
+      const apiBase = import.meta.env.VITE_API_URL?.replace(/\/$/, '') || 'https://kartavya-ias-official.vercel.app';
+      const response = await fetch(`${apiBase}/api/enroll`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
