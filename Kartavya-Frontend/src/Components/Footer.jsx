@@ -10,10 +10,10 @@ function Footer() {
 
         {/* Brand Column */}
         <div className="lg:pr-8">
-          <div className="flex items-center gap-2 mb-6">
+          <a href="/" className="flex items-center gap-2 mb-6 hover:opacity-90 transition-opacity cursor-pointer">
             <img src={logo} className="w-15 h-20 drop-shadow-md brightness-100" alt="Kartavya IAS Logo" />
             <h2 className="font-black text-2xl tracking-tight text-white">Kartavya <span className="text-brand-red-light">IAS</span></h2>
-          </div>
+          </a>
           <p className="text-brand-surface/70 text-sm leading-relaxed mb-6">
             Shaping the nation's future by guiding dedicated aspirants toward administrative brilliance and true success in the UPSC examinations.
           </p>
