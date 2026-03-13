@@ -31,4 +31,11 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server running on port ${PORT}`));
+// Vercel sets the `VERCEL` environment variable automatically. 
+// We only want to listen locally, not on Vercel.
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
+
+// Export the app for Vercel to work as a serverless function
+export default app;
