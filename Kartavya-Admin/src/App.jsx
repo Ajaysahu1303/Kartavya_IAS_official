@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import logo from './assets/logo.png';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const rawApiBase = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = rawApiBase.replace(/\/$/, ''); // Remove trailing slash if it exists
 
 const categories = [
   'History', 'Geography', 'Polity', 'Economy', 'Science & Tech',
