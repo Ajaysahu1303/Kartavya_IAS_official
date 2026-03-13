@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import logo from "../Assets/logo.png";
 
 function Navbar() {
@@ -8,12 +9,12 @@ function Navbar() {
     <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-brand-gold-light">
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-3">
 
-        <a href="/" className="flex items-center gap-3 group cursor-pointer">
+        <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group cursor-pointer">
           <img src={logo} className="w-12 h-16 md:w-15 md:h-20 transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md" alt="Kartavya IAS Logo" />
           <h1 className="font-extrabold text-xl md:text-2xl tracking-tight">
             <span className="text-brand-red drop-shadow-sm">Kartavya</span> <span className="text-brand-blue drop-shadow-sm">IAS</span>
           </h1>
-        </a>
+        </Link>
 
         <div className="hidden lg:flex gap-8 font-semibold text-gray-700">
           <a href="#home" className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Home</a>
