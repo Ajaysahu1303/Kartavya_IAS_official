@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 /* ---------------- STATIC COURSES ---------------- */
-const API_BASE = import.meta.env.VITE_API_URL;
+const API_BASE =
+  import.meta.env.VITE_API_URL || "https://kartavya-ias-official.vercel.app";
 const staticCourses = [
   {
     id: 1,
@@ -79,7 +80,7 @@ function Courses({ isHomePage }) {
 
   useEffect(() => {
 
-    fetch("http://localhost:5000/api/courses")
+    fetch(`${API_BASE}/api/courses`)
       .then(res => res.json())
       .then(data => {
 
