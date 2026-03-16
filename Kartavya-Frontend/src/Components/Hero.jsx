@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import emblem from "../Assets/Emblem of India.svg";
 import logo from "../Assets/logo.png";
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_API_URL;
 const profiles = [
   {
     title: "IAS",
