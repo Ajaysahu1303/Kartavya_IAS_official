@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 /* ---------------- STATIC COURSES ---------------- */
-
+const API_BASE = import.meta.env.VITE_API_URL;
 const staticCourses = [
   {
     id: 1,
