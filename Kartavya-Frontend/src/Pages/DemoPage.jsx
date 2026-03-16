@@ -59,19 +59,6 @@ function DemoPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      {/* Top Bar */}
-      <div className="bg-gradient-to-r from-[#001740] to-[#002670] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 text-white hover:text-brand-gold transition-colors">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
-            Back to Home
-          </Link>
-          <h1 className="text-xl font-black">
-            <span className="text-brand-gold">Demo</span> Classes
-          </h1>
-        </div>
-      </div>
-
       {/* Main Heading */}
       {!selectedCategory && (
         <div className="text-center pt-14 pb-10 px-6">
@@ -179,11 +166,10 @@ function DemoPage() {
                     <button
                       key={video._id}
                       onClick={() => setActiveVideo(video)}
-                      className={`w-full flex gap-3 items-start p-3 rounded-xl text-left transition-all duration-200 ${
-                        activeVideo?._id === video._id
-                          ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/30'
-                          : 'bg-white hover:bg-gray-50 border border-gray-100 shadow-sm'
-                      }`}
+                      className={`w-full flex gap-3 items-start p-3 rounded-xl text-left transition-all duration-200 ${activeVideo?._id === video._id
+                        ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/30'
+                        : 'bg-white hover:bg-gray-50 border border-gray-100 shadow-sm'
+                        }`}
                     >
                       <div className="flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden bg-gray-200 relative">
                         <img

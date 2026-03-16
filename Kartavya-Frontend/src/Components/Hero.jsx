@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import emblem from "../Assets/Emblem of India.svg";
 import logo from "../Assets/logo.png";
-
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 const profiles = [
   {
     title: "IAS",
@@ -21,6 +22,19 @@ const profiles = [
 ];
 
 function Hero() {
+  const [heroText, setHeroText] = useState("New Batch Starts Sept 15th");
+
+  useEffect(() => {
+    fetch(`${API_BASE}/api/settings/heroText`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.success && data.data && data.data.value) {
+          setHeroText(data.data.value);
+        }
+      })
+      .catch(err => console.error("Error fetching hero text:", err));
+  }, []);
+
   return (
     <section id="home" className="relative bg-gradient-to-br from-brand-gold-light/60 via-brand-surface to-brand-red/5 pt-12 pb-24 md:pt-16 md:pb-32 overflow-hidden scroll-mt-28">
       {/* Decorative Blur Backgrounds based on Logo colors */}
@@ -76,7 +90,7 @@ function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red-light opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-red"></span>
             </span>
-            New Batch Starts Sept 15th
+            {heroText}
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">

@@ -1,5 +1,6 @@
 import React from 'react';
 import founderImage from '../Assets/Founder.png';
+import { Link } from "react-router-dom";
 function Founder() {
   return (
     <section id="founder" className="py-24 bg-[#001740] text-white overflow-hidden relative">
@@ -103,7 +104,9 @@ function Founder() {
               </button>
             </div>
           </div>
-
+          <Link to="/about" className="bg-white text-brand-blue-dark border-2 border-brand-blue/10 font-bold py-3.5 px-8 rounded-full shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue hover:-translate-y-1 transform transition duration-300 mt-10 flex items-center justify-center gap-2 group">
+            Learn More
+          </Link>
         </div>
       </div>
     </section>
