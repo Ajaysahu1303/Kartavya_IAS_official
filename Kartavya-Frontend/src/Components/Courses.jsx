@@ -326,7 +326,8 @@ function Courses() {
                 </div>
               </div>
 
-              <div className="bg-[#001740] rounded-2xl p-6 text-white text-center shadow-lg relative overflow-hidden">
+
+              <div className="bg-[#001740] rounded-2xl p-6 text-white text-center shadow-lg relative overflow-hidden mt-10">
                 <div className="absolute inset-0 bg-brand-gold/10 pointer-events-none"></div>
                 <h3 className="text-lg font-bold text-brand-gold-light mb-2 relative z-10">Key Features</h3>
                 <p className="text-lg font-medium relative z-10">{selectedCourse.features}</p>

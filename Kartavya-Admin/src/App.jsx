@@ -8,6 +8,8 @@ import OverviewPage from './Pages/OverviewPage';
 import VideosPage from './Pages/VideosPage';
 import CoursesPage from './Pages/CoursesPage';
 import SettingsPage from './Pages/SettingsPage';
+import DemoMaterialsPage from './Pages/DemoMaterialsPage';
+import DemoQuizzesPage from './Pages/DemoQuizzesPage';
 
 // Components
 import Layout from './components/Layout';
@@ -39,6 +41,8 @@ function App() {
             <Routes>
               <Route path="/" element={<OverviewPage />} />
               <Route path="/videos" element={<VideosPage adminToken={adminToken} />} />
+              <Route path="/demo-pdfs" element={<DemoMaterialsPage adminToken={adminToken} />} />
+              <Route path="/demo-quizzes" element={<DemoQuizzesPage adminToken={adminToken} />} />
               <Route path="/courses" element={<CoursesPage adminToken={adminToken} />} />
               <Route path="/settings" element={<SettingsPage adminToken={adminToken} />} />
               <Route path="*" element={<Navigate to="/" replace />} />

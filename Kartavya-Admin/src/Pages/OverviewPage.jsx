@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchVideosApi } from '../api/videoService';
 import StatsBar from '../components/StatsBar';
 
@@ -40,14 +41,23 @@ const OverviewPage = () => {
 
       <div className="grid md:grid-cols-2 gap-8">
         <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-gray-800 mb-4">Quick Actions</h3>
+          <h3 className="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span className="w-8 h-1 bg-brand-gold rounded-full"></span>
+            Quick Actions
+          </h3>
           <div className="grid grid-cols-2 gap-4">
-            <a href="/videos" className="p-4 bg-blue-50 text-blue-700 rounded-2xl text-center font-bold hover:bg-blue-100 transition-colors">
-              Manage Videos
-            </a>
-            <a href="/settings" className="p-4 bg-purple-50 text-purple-700 rounded-2xl text-center font-bold hover:bg-purple-100 transition-colors">
-              Update Hero
-            </a>
+            <Link to="/videos" className="p-4 bg-blue-50 text-blue-700 rounded-2xl text-center font-bold hover:bg-blue-100 transition-all border border-blue-100 hover:shadow-lg hover:-translate-y-1">
+              📹 Manage Videos
+            </Link>
+            <Link to="/demo-pdfs" className="p-4 bg-red-50 text-red-700 rounded-2xl text-center font-bold hover:bg-red-100 transition-all border border-red-100 hover:shadow-lg hover:-translate-y-1">
+              📄 Manage PDFs
+            </Link>
+            <Link to="/courses" className="p-4 bg-amber-50 text-amber-700 rounded-2xl text-center font-bold hover:bg-amber-100 transition-all border border-amber-100 hover:shadow-lg hover:-translate-y-1">
+              📚 Courses
+            </Link>
+            <Link to="/settings" className="p-4 bg-purple-50 text-purple-700 rounded-2xl text-center font-bold hover:bg-purple-100 transition-all border border-purple-100 hover:shadow-lg hover:-translate-y-1">
+              ⚙️ Update Hero
+            </Link>
           </div>
         </div>
         

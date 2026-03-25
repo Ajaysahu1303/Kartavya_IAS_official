@@ -5,36 +5,60 @@ import logo from "../Assets/logo.png";
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-const profiles = [
-  {
-    title: "IAS",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
-    desc: "Administrative Excellence",
-  },
-  {
-    title: "IPS",
-    img: "https://randomuser.me/api/portraits/women/45.jpg",
-    desc: "Maintaining Order",
-  },
-  {
-    title: "IFS",
-    img: "https://randomuser.me/api/portraits/men/65.jpg",
-    desc: "Global Diplomacy",
-  },
-];
-
 function Hero() {
   const [heroText, setHeroText] = useState("New Batch Starts Sept 15th");
+  const [heroHeading, setHeroHeading] = useState("");
+  const [heroParagraph, setHeroParagraph] = useState("Prepare for UPSC Prelims and Mains with India’s top coaching institute. Guided by excellence, driven by duty.");
+  const [selectionsCount, setSelectionsCount] = useState("50+");
+  const [profiles, setProfiles] = useState([
+    {
+      title: "IAS",
+      img: "https://randomuser.me/api/portraits/men/32.jpg",
+      desc: "Administrative Excellence",
+    },
+    {
+      title: "IPS",
+      img: "https://randomuser.me/api/portraits/women/45.jpg",
+      desc: "Maintaining Order",
+    },
+    {
+      title: "IFS",
+      img: "https://randomuser.me/api/portraits/men/65.jpg",
+      desc: "Global Diplomacy",
+    },
+  ]);
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/settings/heroText`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.success && data.data && data.data.value) {
-          setHeroText(data.data.value);
-        }
-      })
-      .catch(err => console.error("Error fetching hero text:", err));
+    const fetchSettings = async () => {
+      try {
+        const keys = ['heroText', 'heroHeading', 'heroParagraph', 'selectionsCount', 'facultyCards'];
+        const results = await Promise.all(keys.map(key =>
+          fetch(`${API_BASE}/api/settings/${key}`).then(res => res.json())
+        ));
+
+        results.forEach((res, index) => {
+          if (res.success && res.data && res.data.value) {
+            const val = res.data.value;
+            const key = keys[index];
+            if (key === 'heroText') setHeroText(val);
+            if (key === 'heroHeading') setHeroHeading(val);
+            if (key === 'heroParagraph') setHeroParagraph(val);
+            if (key === 'selectionsCount') setSelectionsCount(val);
+            if (key === 'facultyCards') {
+              try {
+                setProfiles(JSON.parse(val));
+              } catch (e) {
+                console.error("Error parsing faculty cards:", e);
+              }
+            }
+          }
+        });
+      } catch (err) {
+        console.error("Error fetching settings:", err);
+      }
+    };
+
+    fetchSettings();
   }, []);
 
   return (
@@ -58,7 +82,7 @@ function Hero() {
           <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl shadow-brand-blue/5 p-6 border border-white max-w-sm w-full transform hover:scale-105 transition duration-500">
             <div className="flex items-center gap-4">
               <div className="h-16 w-16 bg-gradient-to-br from-brand-gold to-yellow-300 rounded-full flex items-center justify-center text-brand-blue-dark font-extrabold text-2xl shadow-inner border border-brand-gold-light">
-                50+
+                {selectionsCount}
               </div>
               <div>
                 <h3 className="font-bold text-gray-900 text-lg">Selections Every Year</h3>
@@ -68,13 +92,13 @@ function Hero() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full justify-center">
-            {profiles.map((p) => (
+            {profiles.map((p, index) => (
               <div
-                key={p.title}
+                key={index}
                 className="bg-white/90 backdrop-blur-sm border border-brand-gold-light/50 rounded-xl shadow-lg shadow-brand-gold/10 w-full text-center p-4 transform transition duration-300 hover:-translate-y-2 hover:shadow-brand-blue/20 group"
               >
                 <img
-                  src={p.img}
+                  src={p.img.startsWith('http') ? p.img : `${API_BASE}${p.img}`}
                   alt={p.title}
                   className="w-16 h-16 rounded-full mx-auto object-cover ring-4 ring-brand-blue/10 p-1 group-hover:ring-brand-blue/30 transition-all"
                 />
@@ -95,23 +119,33 @@ function Hero() {
             {heroText}
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
-            Shape Your Destiny With <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-red-dark drop-shadow-sm">Kartavya</span>{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue-dark drop-shadow-sm">IAS</span>
-          </h2>
+          {heroHeading ? (
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight whitespace-pre-line">
+              {heroHeading}
+            </h2>
+          ) : (
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
+              Shape Your Destiny With <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-red-dark drop-shadow-sm">Kartavya</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-brand-blue-dark drop-shadow-sm">IAS</span>
+            </h2>
+          )}
 
           <p className="text-gray-700 text-lg md:text-xl mt-6 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-            Prepare for UPSC Prelims and Mains with India’s top coaching institute. Guided by <span className="text-brand-red font-semibold">excellence</span>, driven by <span className="text-brand-blue font-semibold">duty</span>.
+            {heroParagraph}
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+          <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4">
             <a href="#courses" className="bg-gradient-to-r from-brand-red to-brand-red-dark text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-brand-red/30 hover:shadow-brand-red/50 hover:-translate-y-1 transform transition duration-300">
               Explore Courses
             </a>
-            <Link to="/demo" className="bg-white text-brand-blue-dark border-2 border-brand-blue/10 font-bold py-3.5 px-8 rounded-full shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue hover:-translate-y-1 transform transition duration-300 flex items-center justify-center gap-2 group">
+            <Link to="/demo" className="bg-white text-brand-blue-dark border-2 border-brand-blue/10 font-bold py-3.5 px-6 rounded-full shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue hover:-translate-y-1 transform transition duration-300 flex items-center justify-center gap-2 group">
               <svg className="w-5 h-5 text-brand-blue group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               Watch Demo
+            </Link>
+            <Link to="/quiz" className="bg-white text-brand-red-dark border-2 border-brand-red/10 font-bold py-3.5 px-6 rounded-full shadow-md hover:bg-brand-red hover:text-white hover:border-brand-red hover:-translate-y-1 transform transition duration-300 flex items-center justify-center gap-2 group">
+              <span className="text-xl group-hover:scale-110 transition-transform">⚡</span>
+              Practice Quiz
             </Link>
           </div>
 

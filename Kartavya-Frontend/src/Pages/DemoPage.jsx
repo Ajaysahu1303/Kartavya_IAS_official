@@ -36,23 +36,31 @@ const allCategories = Object.keys(categoryMeta);
 function DemoPage() {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [videos, setVideos] = useState([]);
+  const [materials, setMaterials] = useState([]);
   const [activeVideo, setActiveVideo] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (selectedCategory) {
       setLoading(true);
-      fetch(`${API_BASE}/api/videos?category=${encodeURIComponent(selectedCategory)}`)
-        .then((res) => res.json())
-        .then((data) => {
-          setVideos(data.data || []);
-          setActiveVideo(data.data && data.data.length > 0 ? data.data[0] : null);
-          setLoading(false);
-        })
-        .catch(() => {
-          setVideos([]);
-          setLoading(false);
-        });
+      
+      // Fetch both videos and materials in parallel
+      Promise.all([
+        fetch(`${API_BASE}/api/videos?category=${encodeURIComponent(selectedCategory)}`).then(res => res.json()),
+        fetch(`${API_BASE}/api/demo-materials?category=${encodeURIComponent(selectedCategory)}`).then(res => res.json())
+      ])
+      .then(([videoData, materialData]) => {
+        setVideos(videoData.data || []);
+        setActiveVideo(videoData.data && videoData.data.length > 0 ? videoData.data[0] : null);
+        setMaterials(materialData.data || []);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Fetch error:', err);
+        setVideos([]);
+        setMaterials([]);
+        setLoading(false);
+      });
     }
   }, [selectedCategory]);
 
@@ -144,64 +152,120 @@ function DemoPage() {
             </div>
           )}
 
-          {!loading && videos.length > 0 && (
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Main Video Player */}
-              <div className="lg:col-span-2">
-                {activeVideo && (
-                  <div>
-                    <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
-                      <iframe
-                        className="w-full h-full"
-                        src={`https://www.youtube.com/embed/${extractYouTubeId(activeVideo.youtubeVideoId)}?rel=0&modestbranding=1`}
-                        title={activeVideo.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
-                        allowFullScreen
-                      ></iframe>
+          {!loading && (videos.length > 0 || materials.length > 0) && (
+            <div className="space-y-12">
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Main Video Player */}
+                <div className="lg:col-span-2">
+                  {activeVideo ? (
+                    <div>
+                      <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                        <iframe
+                          className="w-full h-full"
+                          src={`https://www.youtube.com/embed/${extractYouTubeId(activeVideo.youtubeVideoId)}?rel=0&modestbranding=1`}
+                          title={activeVideo.title}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 mt-5">{activeVideo.title}</h3>
+                      {activeVideo.description && (
+                        <p className="text-gray-600 mt-2">{activeVideo.description}</p>
+                      )}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mt-5">{activeVideo.title}</h3>
-                    {activeVideo.description && (
-                      <p className="text-gray-600 mt-2">{activeVideo.description}</p>
+                  ) : (
+                    <div className="aspect-video rounded-2xl bg-gray-100 flex items-center justify-center border-2 border-dashed border-gray-200">
+                      <p className="text-gray-400 font-bold italic">No video selected</p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Video Playlist Sidebar */}
+                <div className="lg:col-span-1">
+                  <h4 className="font-bold text-gray-700 mb-4 text-sm uppercase tracking-wider">
+                    {videos.length} Lecture{videos.length !== 1 ? 's' : ''} Available
+                  </h4>
+                  <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
+                    {videos.map((video) => (
+                      <button
+                        key={video._id}
+                        onClick={() => setActiveVideo(video)}
+                        className={`w-full flex gap-3 items-start p-3 rounded-xl text-left transition-all duration-200 ${
+                          activeVideo?._id === video._id
+                            ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/30'
+                            : 'bg-white hover:bg-gray-50 border border-gray-100 shadow-sm'
+                        }`}
+                      >
+                        <div className="flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden bg-gray-200 relative">
+                          <img
+                            src={`https://img.youtube.com/vi/${extractYouTubeId(video.youtubeVideoId)}/mqdefault.jpg`}
+                            alt={video.title}
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+                          </div>
+                        </div>
+                        <div className="flex-1 min-w-0 text-sm">
+                          <p className={`font-bold line-clamp-2 ${activeVideo?._id === video._id ? 'text-white' : 'text-gray-800'}`}>
+                            {video.title}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                    {videos.length === 0 && (
+                      <div className="p-10 text-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+                         <span className="text-3xl block mb-2 opacity-30">📹</span>
+                         <p className="text-[10px] text-gray-400 font-bold uppercase">No videos yet</p>
+                      </div>
                     )}
                   </div>
-                )}
+                </div>
               </div>
 
-              {/* Video Playlist Sidebar */}
-              <div className="lg:col-span-1">
-                <h4 className="font-bold text-gray-700 mb-4 text-sm uppercase tracking-wider">
-                  {videos.length} Lecture{videos.length > 1 ? 's' : ''} Available
-                </h4>
-                <div className="space-y-3 max-h-[500px] overflow-y-auto pr-2">
-                  {videos.map((video) => (
-                    <button
-                      key={video._id}
-                      onClick={() => setActiveVideo(video)}
-                      className={`w-full flex gap-3 items-start p-3 rounded-xl text-left transition-all duration-200 ${
-                        activeVideo?._id === video._id
-                          ? 'bg-brand-blue text-white shadow-lg shadow-brand-blue/30'
-                          : 'bg-white hover:bg-gray-50 border border-gray-100 shadow-sm'
-                      }`}
-                    >
-                      <div className="flex-shrink-0 w-28 h-16 rounded-lg overflow-hidden bg-gray-200 relative">
-                        <img
-                          src={`https://img.youtube.com/vi/${extractYouTubeId(video.youtubeVideoId)}/mqdefault.jpg`}
-                          alt={video.title}
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                          <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className={`font-bold text-sm line-clamp-2 ${activeVideo?._id === video._id ? 'text-white' : 'text-gray-800'}`}>
-                          {video.title}
-                        </p>
-                      </div>
-                    </button>
-                  ))}
-                </div>
+              {/* PDF Materials Section */}
+              <div className="pt-10 border-t border-gray-200">
+                 <div className="flex items-center justify-between mb-8">
+                    <div>
+                      <h3 className="text-2xl font-black text-gray-900">Download Class Notes</h3>
+                      <p className="text-gray-500 font-medium text-sm">Free PDF resources for {selectedCategory}</p>
+                    </div>
+                    <div className="hidden md:flex items-center gap-2 text-brand-red font-bold text-sm">
+                       <span className="w-2 h-2 bg-brand-red rounded-full animate-pulse"></span>
+                       Free Resources
+                    </div>
+                 </div>
+
+                 {materials.length === 0 ? (
+                   <div className="bg-white p-12 rounded-3xl border border-dashed border-gray-200 text-center">
+                      <span className="text-4xl block mb-3 opacity-30">📄</span>
+                      <p className="text-gray-400 font-bold uppercase tracking-widest text-xs">No PDF materials found for this subject.</p>
+                   </div>
+                 ) : (
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {materials.map((m) => (
+                        <a
+                          key={m._id}
+                          href={m.fileUrl.startsWith('http') ? m.fileUrl : `${API_BASE}${m.fileUrl}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-brand-red transition-all group"
+                        >
+                          <div className="w-10 h-10 bg-red-50 text-brand-red rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                             📕
+                          </div>
+                          <h4 className="font-bold text-gray-800 text-sm line-clamp-2 mb-3 leading-snug">{m.title}</h4>
+                          <div className="flex items-center justify-between mt-auto pt-3 border-t border-gray-50">
+                             <span className="text-[10px] font-black text-gray-400 uppercase tracking-tighter">PDF Document</span>
+                             <span className="text-brand-blue font-black text-[10px] uppercase flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                               Download ⬇️
+                             </span>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                 )}
               </div>
             </div>
           )}
