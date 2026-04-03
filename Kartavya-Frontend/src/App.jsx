@@ -11,6 +11,8 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import QuizPage from "./Pages/QuizPage";
 import DemoPdfsPage from "./Pages/DemoPdfsPage";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsOfService from "./Pages/TermsOfService";
 
 
 function App() {
@@ -28,6 +30,8 @@ function App() {
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/contact" element={<Enroll />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
       <Footer />
     </Router>
