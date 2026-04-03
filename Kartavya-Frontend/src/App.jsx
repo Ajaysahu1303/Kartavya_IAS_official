@@ -9,6 +9,8 @@ import ScrollToTop from "./Components/ScrollToTop";
 import Enroll from "./Components/Enroll";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import QuizPage from "./Pages/QuizPage";
+import DemoPdfsPage from "./Pages/DemoPdfsPage";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/demo" element={<DemoPage />} />
+        <Route path="/demo-pdfs" element={<DemoPdfsPage />} />
+        <Route path="/quiz" element={<QuizPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />

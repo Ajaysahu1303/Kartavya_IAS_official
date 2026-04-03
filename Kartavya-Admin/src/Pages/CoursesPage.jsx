@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   fetchCoursesApi, 
   addCourseApi, 
@@ -298,14 +299,19 @@ const CoursesPage = ({ adminToken }) => {
                   </div>
                 </div>
                 
-                <div className="mt-4">
-                   <p className="text-[10px] uppercase font-bold text-gray-400 mb-2">Syllabus Highlights</p>
-                   <div className="flex flex-wrap gap-2">
-                     {course.syllabus.slice(0, 3).map((s, i) => (
-                       <span key={i} className="bg-gray-50 text-gray-600 text-xs px-2 py-1 rounded-md border border-gray-100">{s}</span>
-                     ))}
-                     {course.syllabus.length > 3 && <span className="text-gray-400 text-xs font-bold">+{course.syllabus.length - 3} more</span>}
+                <div className="mt-4 pt-4 border-t border-gray-50 flex justify-between items-center gap-4">
+                   <div className="flex-1">
+                     <p className="text-[10px] uppercase font-bold text-gray-400 mb-2">Syllabus Highlights</p>
+                     <div className="flex flex-wrap gap-2">
+                       {course.syllabus.slice(0, 3).map((s, i) => (
+                         <span key={i} className="bg-gray-50 text-gray-600 text-xs px-2 py-1 rounded-md border border-gray-100">{s}</span>
+                       ))}
+                       {course.syllabus.length > 3 && <span className="text-gray-400 text-xs font-bold">+{course.syllabus.length - 3} more</span>}
+                     </div>
                    </div>
+                   <Link to={`/subjects/${course._id}`} className="px-4 py-2 bg-brand-blue/10 text-brand-blue font-black rounded-lg hover:bg-brand-blue hover:text-white transition-all text-xs flex-shrink-0 cursor-pointer">
+                     Manage Subjects →
+                   </Link>
                 </div>
               </div>
             ))}

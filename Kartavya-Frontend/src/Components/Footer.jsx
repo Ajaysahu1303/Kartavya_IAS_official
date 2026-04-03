@@ -12,7 +12,7 @@ function Footer() {
         {/* Brand Column */}
         <div className="lg:pr-8">
           <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-2 mb-6 hover:opacity-90 transition-opacity cursor-pointer">
-            <img src={logo} className="w-15 h-20 drop-shadow-md brightness-100" alt="Kartavya IAS Logo" />
+            <img src={logo} className="w-18 h-20 drop-shadow-md brightness-100" alt="Kartavya IAS Logo" />
             <h2 className="font-black text-2xl tracking-tight text-white">Kartavya <span className="text-brand-red-light">IAS</span></h2>
           </Link>
           <p className="text-brand-surface/70 text-sm leading-relaxed mb-6">
@@ -36,10 +36,12 @@ function Footer() {
             Quick Links
           </h3>
           <ul className="text-brand-surface/70 space-y-3 font-medium">
-            <li><a href="#home" className="hover:text-brand-gold transition-colors">Home</a></li>
-            <li><a href="#about" className="hover:text-brand-gold transition-colors">About Us</a></li>
-            <li><a href="#founder" className="hover:text-brand-gold transition-colors">Founder's Vision</a></li>
-            <li><a href="#enroll" className="hover:text-brand-gold transition-colors">Enrollment</a></li>
+            <li><Link to="/" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">Home</Link></li>
+            <li><Link to="/demo" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">Demo Lectures</Link></li>
+            <li><Link to="/demo-pdfs" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">Free PDFs</Link></li>
+            <li><Link to="/quiz" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">Practice Quiz</Link></li>
+            <li><Link to="/about" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">About Us</Link></li>
+            <li><Link to="/contact" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-gold transition-colors">Contact</Link></li>
           </ul>
         </div>
 

@@ -6,6 +6,8 @@ const Sidebar = ({ handleLogout }) => {
   const menuItems = [
     { name: 'Overview', path: '/', icon: '📊' },
     { name: 'Videos', path: '/videos', icon: '📹' },
+    { name: 'Demo PDF', path: '/demo-pdfs', icon: '📄' },
+    { name: 'Demo Quizzes', path: '/demo-quizzes', icon: '🧩' },
     { name: 'Courses', path: '/courses', icon: '📚' },
     { name: 'Settings', path: '/settings', icon: '⚙️' },
   ];
@@ -24,10 +26,9 @@ const Sidebar = ({ handleLogout }) => {
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center gap-4 px-6 py-4 rounded-xl font-bold transition-all duration-300 ${
-                isActive
-                  ? 'bg-gradient-to-r from-brand-blue to-blue-600 text-white shadow-lg shadow-brand-blue/30'
-                  : 'text-gray-400 hover:bg-white/5 hover:text-white'
+              `flex items-center gap-4 px-6 py-4 rounded-xl font-bold transition-all duration-300 ${isActive
+                ? 'bg-gradient-to-r from-brand-blue to-blue-600 text-white shadow-lg shadow-brand-blue/30'
+                : 'text-gray-400 hover:bg-white/5 hover:text-white'
               }`
             }
           >

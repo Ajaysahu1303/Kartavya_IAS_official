@@ -10,7 +10,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center py-3">
 
         <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group cursor-pointer">
-          <img src={logo} className="w-12 h-16 md:w-15 md:h-20 transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md" alt="Kartavya IAS Logo" />
+          <img src={logo} className="w-16 h-16 md:w-18 md:h-20 transform group-hover:scale-105 transition-transform duration-300 drop-shadow-md" alt="Kartavya IAS Logo" />
           <h1 className="font-extrabold text-xl md:text-2xl tracking-tight">
             <span className="text-brand-red drop-shadow-sm">Kartavya</span> <span className="text-brand-blue drop-shadow-sm">IAS</span>
           </h1>
@@ -18,6 +18,8 @@ function Navbar() {
 
         <div className="hidden lg:flex gap-8 font-semibold text-gray-700">
           <Link to="/demo" className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Demo Lectures</Link>
+          <Link to="/demo-pdfs" className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Free PDFs</Link>
+          <Link to="/quiz" className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Practice Quiz</Link>
           <Link to="/courses" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Courses</Link>
           <Link to="/about" onClick={() => window.scrollTo(0, 0)} className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">About Us</Link>
           <Link to="/contact" className="hover:text-brand-red transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-brand-red hover:after:w-full after:transition-all">Contact</Link>
@@ -49,10 +51,13 @@ function Navbar() {
       {isOpen && (
         <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-brand-gold-light/30 shadow-xl absolute top-full left-0 w-full">
           <div className="flex flex-col px-6 py-4 gap-4 font-bold text-gray-800 text-lg">
-            <a href="#home" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Home</a>
+            <Link to="/" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Home</Link>
+            <Link to="/demo" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Demo Lectures</Link>
+            <Link to="/demo-pdfs" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Free PDFs</Link>
+            <Link to="/quiz" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Practice Quiz</Link>
             <Link to="/courses" onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Courses</Link>
             <Link to="/about" onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">About Us</Link>
-            <a href="#enroll" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Contact</a>
+            <Link to="/contact" onClick={() => setIsOpen(false)} className="hover:text-brand-red active:text-brand-red transition-colors border-b border-gray-100 pb-2">Contact</Link>
 
             <Link to="/courses" onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }} className="sm:hidden text-center mt-2 bg-gradient-to-r from-brand-blue to-brand-blue-dark text-white font-bold px-6 py-3 rounded-full shadow-lg">
               Enroll Now
