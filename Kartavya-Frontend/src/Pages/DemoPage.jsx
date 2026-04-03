@@ -26,8 +26,8 @@ const categoryMeta = {
   'Environment': { icon: '🌱', color: 'from-lime-500 to-green-600' },
   'Current Affairs': { icon: '📰', color: 'from-red-500 to-rose-600' },
   'Ethics': { icon: '🧭', color: 'from-sky-500 to-blue-600' },
-  'Essay': { icon: '✍️', color: 'from-fuchsia-500 to-pink-600' },
-  'CSAT': { icon: '🧮', color: 'from-yellow-500 to-amber-600' },
+  'CSAT': { icon: '✍️', color: 'from-fuchsia-500 to-pink-600' },
+  'All': { icon: '🧮', color: 'from-yellow-500 to-amber-600' },
 };
 
 // All possible categories even if no videos yet

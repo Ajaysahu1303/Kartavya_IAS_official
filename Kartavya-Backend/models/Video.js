@@ -23,8 +23,8 @@ const videoSchema = new mongoose.Schema({
       'Environment',
       'Current Affairs',
       'Ethics',
-      'Essay',
       'CSAT',
+      'All',
     ],
   },
   description: {

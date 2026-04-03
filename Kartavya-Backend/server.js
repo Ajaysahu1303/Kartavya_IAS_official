@@ -14,6 +14,7 @@ import demoQuizRoutes from './routes/demoQuizRoutes.js';
 import subjectRoutes from './routes/subjectRoutes.js';
 import materialRoutes from './routes/materialRoutes.js';
 import quizRoutes from './routes/quizRoutes.js';
+import offeringRoutes from './routes/offeringRoutes.js';
 
 // Connect to database
 connectDB();
@@ -38,6 +39,7 @@ app.use('/api/demo-quizzes', demoQuizRoutes);
 app.use('/api/subjects', subjectRoutes);
 app.use('/api/materials', materialRoutes);
 app.use('/api/quizzes', quizRoutes);
+app.use('/api/offerings', offeringRoutes);
 
 // Static folders
 const __dirname = path.resolve();

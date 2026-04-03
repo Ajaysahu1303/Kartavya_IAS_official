@@ -92,10 +92,10 @@ function Enroll() {
                 "Finding the right mentor is 50% of your UPSC preparation. Kartavya IAS made the journey incredibly clear."
               </p>
               <div className="mt-4 flex items-center gap-3">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student" className="w-10 h-10 rounded-full border-2 border-brand-gold" />
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Student" className="w-10 h-10 rounded-full border-2 border-brand-gold" />
                 <div>
-                  <p className="text-sm font-bold text-white">Anjali Verma</p>
-                  <p className="text-xs text-brand-gold">AIR 42, UPSC 2022</p>
+                  <p className="text-sm font-bold text-white">Ayush Verma</p>
+                  <p className="text-xs text-brand-gold">AIR 352, UPSC 2022</p>
                 </div>
               </div>
             </div>

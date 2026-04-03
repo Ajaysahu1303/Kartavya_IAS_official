@@ -61,7 +61,7 @@ function About() {
                </div>
                <div>
                  <h4 className="text-xl font-bold text-gray-900 group-hover:text-brand-blue transition-colors">Expert Faculty</h4>
-                 <p className="text-gray-600 text-sm mt-1">Learn from distinguished educators with profound bureaucratic experience.</p>
+                 <p className="text-gray-600 text-sm mt-1">Our Director, Dr. Kumar Mayank, has a deep command over India’s economic framework, directly aligning with core UPSC civil service subjects.</p>
                </div>
             </div>
             
@@ -109,7 +109,7 @@ function About() {
               
               <h3 className="text-2xl font-bold text-brand-blue-dark mb-4 border-b-2 border-brand-gold inline-block pb-1">Our History</h3>
               <p className="mb-8 text-lg leading-relaxed">
-                Kartavya IAS was founded with a singular vision: to provide premier coaching to dedicated civil service aspirants. Over the past 10+ years, we have grown from a small study circle into a leading institution, consistently producing top-ranked officers in the UPSC examinations. Our journey is defined by the absolute focus on quality education, transparent mentorship, and an environment that fosters intellectual growth.
+                Kartavya IAS was founded in 2015 with a singular vision: to provide premier coaching to dedicated civil service aspirants. Over the years, we have grown from a small study circle into a leading institution, consistently producing top-ranked officers in the UPSC examinations. Our journey is defined by the absolute focus on quality education, transparent mentorship, and an environment that fosters intellectual growth.
               </p>
 
               <h3 className="text-2xl font-bold text-brand-blue-dark mb-4 border-b-2 border-brand-gold inline-block pb-1">Our Core Values</h3>

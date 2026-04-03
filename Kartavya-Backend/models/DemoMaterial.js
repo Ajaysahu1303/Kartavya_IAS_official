@@ -18,8 +18,8 @@ const demoMaterialSchema = new mongoose.Schema({
       'Environment',
       'Current Affairs',
       'Ethics',
-      'Essay',
-      'CSAT'
+      'CSAT',
+      'All'
     ],
   },
   fileUrl: {

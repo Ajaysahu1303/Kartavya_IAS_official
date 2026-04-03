@@ -3,6 +3,22 @@ import { Link } from 'react-router-dom';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
+const categoryMeta = {
+    'History': { icon: '🏛️', color: 'from-amber-500 to-orange-600' },
+    'Geography': { icon: '🌍', color: 'from-green-500 to-emerald-600' },
+    'Polity': { icon: '⚖️', color: 'from-blue-500 to-indigo-600' },
+    'Economy': { icon: '📊', color: 'from-violet-500 to-purple-600' },
+    'Science & Tech': { icon: '🔬', color: 'from-cyan-500 to-teal-600' },
+    'Environment': { icon: '🌱', color: 'from-lime-500 to-green-600' },
+    'Current Affairs': { icon: '📰', color: 'from-red-500 to-rose-600' },
+    'Ethics': { icon: '🧭', color: 'from-sky-500 to-blue-600' },
+    'CSAT': { icon: '✍️', color: 'from-fuchsia-500 to-pink-600' },
+    'All': { icon: '🧮', color: 'from-yellow-500 to-amber-600' },
+};
+
+// All possible categories even if no videos yet
+const allCategories = Object.keys(categoryMeta);
+
 const QuizPage = () => {
     const [quizzes, setQuizzes] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,7 +32,7 @@ const QuizPage = () => {
     const categories = [
         'History', 'Geography', 'Polity', 'Economy',
         'Science & Tech', 'Environment', 'Current Affairs',
-        'Ethics', 'Essay', 'CSAT'
+        'Ethics', 'CSAT', 'All'
     ];
 
     const fetchQuizzes = async (cat) => {
@@ -85,23 +101,29 @@ const QuizPage = () => {
                             <p className="text-gray-500 font-medium max-w-xl mx-auto">Select a subject to start your practice session. Each set contains the latest patterns of UPSC questions.</p>
                         </div>
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                            {categories.map((cat) => (
-                                <button
-                                    key={cat}
-                                    onClick={() => startQuiz(cat)}
-                                    className="group relative bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all text-center overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-brand-blue opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                    <div className="relative z-10">
-                                        <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-white/20 transition-colors">
-                                            <span className="text-2xl group-hover:scale-125 transition-transform duration-300">⚡</span>
-                                        </div>
-                                        <h4 className="font-black text-xs text-gray-800 uppercase tracking-widest group-hover:text-white transition-colors">{cat}</h4>
-                                    </div>
-                                </button>
-                            ))}
-                        </div>
+                        {/* Category Grid */}
+                        {!selectedCategory && (
+                            <div className="max-w-6xl mx-auto px-6 pb-20">
+                                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+                                    {allCategories.map((cat) => {
+                                        const meta = categoryMeta[cat];
+                                        return (
+                                            <button
+                                                key={cat}
+                                                onClick={() => startQuiz(cat)}
+                                                className="group relative bg-white rounded-2xl shadow-lg border border-gray-100 p-6 text-center hover:-translate-y-2 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                                            >
+                                                <div className={`absolute inset-0 bg-gradient-to-br ${meta.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                                <div className="relative z-10">
+                                                    <span className="text-4xl block mb-3 group-hover:scale-110 transition-transform duration-300">{meta.icon}</span>
+                                                    <h4 className="font-bold text-gray-800 group-hover:text-white transition-colors text-sm">{cat}</h4>
+                                                </div>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 ) : loading ? (
                     <div className="text-center">
@@ -163,12 +185,12 @@ const QuizPage = () => {
                                         disabled={isAnswered}
                                         onClick={() => handleAnswerClick(idx)}
                                         className={`w-full p-5 rounded-2xl text-left font-bold transition-all relative flex items-center justify-between group ${isAnswered
-                                                ? idx === quizzes[currentQuizIndex].correctOption
-                                                    ? 'bg-green-500 text-white shadow-lg shadow-green-200'
-                                                    : selectedAnswer === idx
-                                                        ? 'bg-red-500 text-white shadow-lg shadow-red-200'
-                                                        : 'bg-gray-50 text-gray-400 border border-gray-100'
-                                                : 'bg-gray-50 hover:bg-brand-blue hover:text-white border border-gray-100 hover:shadow-xl hover:-translate-x-2'
+                                            ? idx === quizzes[currentQuizIndex].correctOption
+                                                ? 'bg-green-500 text-white shadow-lg shadow-green-200'
+                                                : selectedAnswer === idx
+                                                    ? 'bg-red-500 text-white shadow-lg shadow-red-200'
+                                                    : 'bg-gray-50 text-gray-400 border border-gray-100'
+                                            : 'bg-gray-50 hover:bg-brand-blue hover:text-white border border-gray-100 hover:shadow-xl hover:-translate-x-2'
                                             }`}
                                     >
                                         <div className="flex items-center gap-4">

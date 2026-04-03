@@ -194,3 +194,41 @@ export const updateDemoQuizApi = async (id, quizData, adminToken) => {
   });
   return await res.json();
 };
+
+export const fetchOfferingsApi = async () => {
+  const res = await fetch(`${API_BASE}/api/offerings`);
+  return await res.json();
+};
+
+export const addOfferingApi = async (offeringData, adminToken) => {
+  const res = await fetch(`${API_BASE}/api/offerings`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-admin-token': adminToken,
+    },
+    body: JSON.stringify(offeringData),
+  });
+  return await res.json();
+};
+
+export const deleteOfferingApi = async (id, adminToken) => {
+  const res = await fetch(`${API_BASE}/api/offerings/${id}`, {
+    method: 'DELETE',
+    headers: { 'x-admin-token': adminToken },
+  });
+  return await res.json();
+};
+
+export const updateOfferingApi = async (id, offeringData, adminToken) => {
+  const res = await fetch(`${API_BASE}/api/offerings/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-admin-token': adminToken,
+    },
+    body: JSON.stringify(offeringData),
+  });
+  return await res.json();
+};
+

@@ -15,7 +15,7 @@ const DemoQuizzesPage = ({ adminToken }) => {
   const categories = [
     'History', 'Geography', 'Polity', 'Economy',
     'Science & Tech', 'Environment', 'Current Affairs',
-    'Ethics', 'Essay', 'CSAT'
+    'Ethics', 'CSAT', 'All'
   ];
 
   const [formData, setFormData] = useState({

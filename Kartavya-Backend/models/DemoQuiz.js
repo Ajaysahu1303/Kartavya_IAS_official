@@ -30,8 +30,8 @@ const demoQuizSchema = new mongoose.Schema({
       'Environment',
       'Current Affairs',
       'Ethics',
-      'Essay',
-      'CSAT'
+      'CSAT',
+      'All'
     ],
   },
   createdAt: {

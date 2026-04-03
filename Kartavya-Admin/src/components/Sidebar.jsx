@@ -9,6 +9,7 @@ const Sidebar = ({ handleLogout }) => {
     { name: 'Demo PDF', path: '/demo-pdfs', icon: '📄' },
     { name: 'Demo Quizzes', path: '/demo-quizzes', icon: '🧩' },
     { name: 'Courses', path: '/courses', icon: '📚' },
+    { name: 'Offerings', path: '/offerings', icon: '🔗' },
     { name: 'Settings', path: '/settings', icon: '⚙️' },
   ];
 
