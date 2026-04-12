@@ -36,6 +36,11 @@ const PrivacyPolicy = () => {
             If you have any questions or concerns about this Privacy Policy, please contact us via our Contact Page or directly at our Prayagraj or New Delhi campuses.
           </p>
 
+          <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">6. Jurisdiction</h2>
+          <p>
+            All jurisdiction cases and legal disputes will be strictly subjected to the Honorable Allahabad High Court.
+          </p>
+
           <p className="text-sm text-gray-500 mt-10 pt-6 border-t border-gray-100">
             Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
           </p>

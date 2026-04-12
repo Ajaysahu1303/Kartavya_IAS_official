@@ -13,10 +13,10 @@ function Founder() {
 
       <div className="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-red/10 rounded-full mix-blend-screen filter blur-[100px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-20 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-20 items-start relative z-10">
 
         {/* Founder Portrait Section */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+        <div className="lg:col-span-5 flex justify-center lg:justify-end lg:sticky lg:top-32 self-start">
           <div className="relative group">
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-gold to-yellow-400 rounded-3xl transform rotate-3 group-hover:rotate-6 transition duration-500 opacity-80 shadow-2xl shadow-brand-gold/20"></div>
             <div className="relative bg-[#00205b] p-2 rounded-3xl border border-brand-blue-light/50 w-full max-w-sm transform group-hover:-translate-y-2 group-hover:rotate-0 transition duration-500 z-10 shadow-2xl">
@@ -56,9 +56,14 @@ function Founder() {
           <h3 className="text-3xl md:text-5xl font-black text-white leading-tight mb-6">
             Meet Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">Visionary</span> Founder
           </h3>
-          <p className="text-brand-surface/80 text-lg leading-relaxed mb-8 font-medium">
-            Guided by decades of academic excellence and bureaucratic experience, our Founder has transformed <span className="text-brand-gold font-bold">Kartavya IAS</span> into the premier destination for UPSC preparation. With a deep commitment to student success, the leadership drives our results-oriented approach.
+          <p className="text-brand-surface/80 text-lg leading-relaxed mb-6 font-medium">
+            Guided by decades of academic excellence and profound societal commitment, Dr. Kumar Mayank has established <span className="text-brand-gold font-bold">Kartavya IAS</span> as a premier institution for UPSC preparation. His leadership is not merely driven by results, but by an unwavering vision of nation-building.
           </p>
+          <div className="bg-brand-red/10 border-l-4 border-brand-red p-5 rounded-r-xl mb-8 backdrop-blur-sm">
+            <p className="text-white text-sm md:text-base leading-relaxed font-light italic">
+              "Beyond producing top bureaucrats, Dr. Mayank actively runs the <Link to="/about" className="text-brand-gold font-bold hover:underline">Kartavya Educational Society</Link>, a pan-India NGO dedicated to providing free education to orphans, underprivileged children, and ambitious daughters, proving that his educational mission extends far beyond the traditional classroom."
+            </p>
+          </div>
 
           <div className="grid sm:grid-cols-2 gap-6 mb-10">
             {/* Doctorate Highlight */}
@@ -82,11 +87,11 @@ function Founder() {
 
           {/* Branches Highlight */}
           <div className="grid sm:grid-cols-2 gap-6">
-            {/* Prayagraj Main Branch */}
+            {/* New Delhi Main Br anch */}
             <div className="bg-gradient-to-br from-brand-red to-brand-red-dark rounded-2xl p-6 border border-brand-red-light shadow-2xl shadow-brand-red/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
               <div className="absolute top-0 right-0 bg-black/20 backdrop-blur-md text-white border-b border-l border-white/20 text-xs font-bold px-4 py-1.5 rounded-bl-2xl">Main Branch</div>
               <div className="relative z-10">
-                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">Prayagraj</h4>
+                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">New Delhi</h4>
                 <p className="text-brand-surface/90 text-sm mb-6 leading-relaxed">The historic core and main hub of our civil services preparation excellence.</p>
               </div>
               <button className="bg-white text-brand-red-dark hover:bg-brand-surface font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">
@@ -95,11 +100,11 @@ function Founder() {
               </button>
             </div>
 
-            {/* New Delhi Branch */}
+            {/* Prayagraj Branch */}
             <div className="bg-gradient-to-br from-[#004eb8] to-[#0033a0] rounded-2xl p-6 border border-brand-blue-light/50 shadow-2xl shadow-brand-blue/20 relative overflow-hidden flex flex-col justify-between group hover:-translate-y-1 transition duration-300">
               <div className="absolute top-0 right-0 bg-black/20 text-brand-gold-light border-b border-l border-white/10 text-xs font-bold px-4 py-1.5 rounded-bl-2xl backdrop-blur-md">New Hub</div>
               <div className="relative z-10">
-                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">New Delhi</h4>
+                <h4 className="text-2xl font-black text-white mb-1 mt-3 group-hover:text-brand-gold-light transition-colors">Prayagraj</h4>
                 <p className="text-brand-surface/80 text-sm mb-6 leading-relaxed">Operating right from the heart of India's current UPSC Hub!</p>
               </div>
               <button className="bg-brand-gold hover:bg-yellow-400 text-[#001740] font-extrabold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-sm transition w-full shadow-lg hover:shadow-xl relative z-10">

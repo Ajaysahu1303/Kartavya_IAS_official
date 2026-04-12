@@ -13,6 +13,7 @@ import QuizPage from "./Pages/QuizPage";
 import DemoPdfsPage from "./Pages/DemoPdfsPage";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsOfService from "./Pages/TermsOfService";
+import BetiyanPage from "./Pages/BetiyanPage";
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/quiz" element={<QuizPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/betiyon-ki-padhai" element={<BetiyanPage />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
         <Route path="/courses" element={<CoursesPage />} />
         <Route path="/contact" element={<Enroll />} />

@@ -70,14 +70,15 @@ function Footer() {
           </h3>
           <div className="space-y-4">
             <div>
-              <p className="text-white font-semibold text-sm">Prayagraj (Main)</p>
+              <p className="text-white font-semibold text-sm">New Delhi (Main)</p>
+              <p className="text-brand-surface/60 text-sm mt-1 leading-relaxed">101,B-14,First Floor,Dr Mukharji Nagar,New Delhi 110009</p>
+            </div>
+            <div>
+              <p className="text-white font-semibold text-sm">Prayagraj</p>
               <p className="text-brand-surface/60 text-sm mt-1 leading-relaxed">Front of
                 Aanand Bhawan,Katra, Prayagraj, UP 211002</p>
             </div>
-            <div>
-              <p className="text-white font-semibold text-sm">New Delhi</p>
-              <p className="text-brand-surface/60 text-sm mt-1 leading-relaxed">101,B-14,First Floor,Dr Mukharji Nagar,New Delhi 110009</p>
-            </div>
+
           </div>
         </div>
 
