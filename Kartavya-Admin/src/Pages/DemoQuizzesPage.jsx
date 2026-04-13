@@ -13,7 +13,7 @@ const DemoQuizzesPage = ({ adminToken }) => {
   const [filterCategory, setFilterCategory] = useState('All');
 
   const categories = [
-    'History', 'Geography', 'Polity', 'Economy',
+    'History', 'Geography', 'Polity', 'economics',
     'Science & Tech', 'Environment', 'Current Affairs',
     'Ethics', 'Essay', 'CSAT'
   ];

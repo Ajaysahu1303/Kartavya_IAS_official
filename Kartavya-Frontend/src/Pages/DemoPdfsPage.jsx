@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const categories = [
-    'History', 'Geography', 'Polity', 'Economy',
+    'History', 'Geography', 'Polity', 'economics',
     'Science & Tech', 'Environment', 'Current Affairs',
     'Ethics', 'Essay', 'CSAT'
 ];
 
 const categoryIcons = {
-    'History': '🏛️', 'Geography': '🌍', 'Polity': '⚖️', 'Economy': '📊',
+    'History': '🏛️', 'Geography': '🌍', 'Polity': '⚖️', 'economics': '📊',
     'Science & Tech': '🔬', 'Environment': '🌱', 'Current Affairs': '📰',
     'Ethics': '🧭', 'Essay': '✍️', 'CSAT': '🧮'
 };
@@ -119,9 +119,9 @@ const DemoPdfsPage = () => {
                                         <h3 className="text-lg font-black text-gray-800 line-clamp-2 mb-2">{m.title}</h3>
                                         <span className="inline-block px-2 py-1 bg-gray-100 text-gray-500 text-[10px] uppercase font-bold w-fit rounded-md mb-4">{m.category}</span>
                                         <div className="mt-auto pt-6 border-t border-gray-50">
-                                            <a 
-                                                href={(m.fileUrl || '').startsWith('http') ? m.fileUrl : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${m.fileUrl || ''}`} 
-                                                target="_blank" 
+                                            <a
+                                                href={(m.fileUrl || '').startsWith('http') ? m.fileUrl : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${m.fileUrl || ''}`}
+                                                target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="w-full py-3 bg-brand-blue/10 text-brand-blue font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-brand-blue hover:text-white transition-all text-sm"
                                             >

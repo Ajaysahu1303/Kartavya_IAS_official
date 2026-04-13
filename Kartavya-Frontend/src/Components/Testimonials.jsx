@@ -19,7 +19,7 @@ const testimonials = [
     id: 3,
     name: "Amit Singh",
     role: "Foundation Course Student",
-    content: "Dr. Mayank's classes on Economy are phenomenal. The concepts are explained with extreme clarity making them easy to remember.",
+    content: "Dr. Mayank's classes on economics are phenomenal. The concepts are explained with extreme clarity making them easy to remember.",
     rating: 5
   }
 ];
@@ -53,9 +53,9 @@ function Testimonials() {
             <div key={testimonial.id} className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 hover:-translate-y-2 hover:border-brand-gold transition-all duration-300 relative group">
               {/* Quote Icon */}
               <div className="absolute top-6 right-8 text-brand-gold/20 group-hover:text-brand-gold/40 transition-colors">
-                 <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
+                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" /></svg>
               </div>
-              
+
               <div className="flex items-center mb-6">
                 <div className="w-12 h-12 bg-gradient-to-br from-brand-blue to-brand-blue-dark text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg">
                   {testimonial.name.charAt(0)}
@@ -68,7 +68,7 @@ function Testimonials() {
 
               <div className="flex text-brand-gold mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                   <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
                 ))}
               </div>
 

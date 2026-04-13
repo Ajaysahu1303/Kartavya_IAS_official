@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  fetchDemoMaterialsApi, 
-  addDemoMaterialApi, 
-  deleteDemoMaterialApi, 
+import {
+  fetchDemoMaterialsApi,
+  addDemoMaterialApi,
+  deleteDemoMaterialApi,
   updateDemoMaterialApi,
-  uploadFileApi 
+  uploadFileApi
 } from '../api/videoService';
 
 const DemoMaterialsPage = ({ adminToken }) => {
@@ -14,8 +14,8 @@ const DemoMaterialsPage = ({ adminToken }) => {
   const [filterCategory, setFilterCategory] = useState('All');
 
   const categories = [
-    'History', 'Geography', 'Polity', 'Economy', 
-    'Science & Tech', 'Environment', 'Current Affairs', 
+    'History', 'Geography', 'Polity', 'economics',
+    'Science & Tech', 'Environment', 'Current Affairs',
     'Ethics', 'Essay', 'CSAT'
   ];
 
@@ -122,10 +122,10 @@ const DemoMaterialsPage = ({ adminToken }) => {
 
       <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
         <h2 className="text-xl font-black text-gray-800 mb-6 flex items-center gap-2">
-           <span className="w-8 h-8 bg-brand-red rounded-lg flex items-center justify-center text-white text-sm">
-             {editingId ? '📝' : '➕'}
-           </span>
-           {editingId ? 'Edit PDF Details' : 'Add New PDF Resource'}
+          <span className="w-8 h-8 bg-brand-red rounded-lg flex items-center justify-center text-white text-sm">
+            {editingId ? '📝' : '➕'}
+          </span>
+          {editingId ? 'Edit PDF Details' : 'Add New PDF Resource'}
         </h2>
 
         <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
@@ -199,14 +199,14 @@ const DemoMaterialsPage = ({ adminToken }) => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <h2 className="text-2xl font-black text-gray-900">Resource Library</h2>
           <div className="flex gap-2 p-1 bg-white rounded-xl border border-gray-100 shadow-sm overflow-x-auto max-w-full">
-            <button 
+            <button
               onClick={() => setFilterCategory('All')}
               className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${filterCategory === 'All' ? 'bg-brand-blue text-white' : 'text-gray-500 hover:bg-gray-50'}`}
             >
               All
             </button>
             {categories.map(cat => (
-              <button 
+              <button
                 key={cat}
                 onClick={() => setFilterCategory(cat)}
                 className={`px-4 py-2 rounded-lg text-xs font-bold whitespace-nowrap transition-all ${filterCategory === cat ? 'bg-brand-blue text-white' : 'text-gray-500 hover:bg-gray-50'}`}
@@ -219,7 +219,7 @@ const DemoMaterialsPage = ({ adminToken }) => {
 
         {loading ? (
           <div className="text-center py-20 bg-white rounded-3xl border border-gray-100">
-             <div className="inline-block w-10 h-10 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
+            <div className="inline-block w-10 h-10 border-4 border-brand-blue border-t-transparent rounded-full animate-spin"></div>
           </div>
         ) : materials.length === 0 ? (
           <div className="bg-white p-20 text-center rounded-3xl border border-gray-100 shadow-sm">
@@ -248,14 +248,14 @@ const DemoMaterialsPage = ({ adminToken }) => {
                   {m.category}
                 </span>
                 <div className="mt-6 pt-6 border-t border-gray-50">
-                   <a 
-                    href={(m.fileUrl || '').startsWith('http') ? m.fileUrl : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${m.fileUrl || ''}`} 
-                    target="_blank" 
+                  <a
+                    href={(m.fileUrl || '').startsWith('http') ? m.fileUrl : `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${m.fileUrl || ''}`}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="w-full py-3 bg-gray-50 text-brand-blue font-bold rounded-xl flex items-center justify-center gap-2 hover:bg-brand-blue hover:text-white transition-all text-sm"
-                   >
-                     Preview PDF 👁️
-                   </a>
+                  >
+                    Preview PDF 👁️
+                  </a>
                 </div>
               </div>
             ))}

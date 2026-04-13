@@ -14,7 +14,7 @@ const QuizPage = () => {
     const [quizStarted, setQuizStarted] = useState(false);
 
     const categories = [
-        'History', 'Geography', 'Polity', 'Economy',
+        'History', 'Geography', 'Polity', 'economics',
         'Science & Tech', 'Environment', 'Current Affairs',
         'Ethics', 'Essay', 'CSAT'
     ];
@@ -163,12 +163,12 @@ const QuizPage = () => {
                                         disabled={isAnswered}
                                         onClick={() => handleAnswerClick(idx)}
                                         className={`w-full p-5 rounded-2xl text-left font-bold transition-all relative flex items-center justify-between group ${isAnswered
-                                                ? idx === quizzes[currentQuizIndex].correctOption
-                                                    ? 'bg-green-500 text-white shadow-lg shadow-green-200'
-                                                    : selectedAnswer === idx
-                                                        ? 'bg-red-500 text-white shadow-lg shadow-red-200'
-                                                        : 'bg-gray-50 text-gray-400 border border-gray-100'
-                                                : 'bg-gray-50 hover:bg-brand-blue hover:text-white border border-gray-100 hover:shadow-xl hover:-translate-x-2'
+                                            ? idx === quizzes[currentQuizIndex].correctOption
+                                                ? 'bg-green-500 text-white shadow-lg shadow-green-200'
+                                                : selectedAnswer === idx
+                                                    ? 'bg-red-500 text-white shadow-lg shadow-red-200'
+                                                    : 'bg-gray-50 text-gray-400 border border-gray-100'
+                                            : 'bg-gray-50 hover:bg-brand-blue hover:text-white border border-gray-100 hover:shadow-xl hover:-translate-x-2'
                                             }`}
                                     >
                                         <div className="flex items-center gap-4">

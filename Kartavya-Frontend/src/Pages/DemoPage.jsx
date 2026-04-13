@@ -22,7 +22,7 @@ const categoryMeta = {
   'History': { icon: '🏛️', color: 'from-amber-500 to-orange-600' },
   'Geography': { icon: '🌍', color: 'from-green-500 to-emerald-600' },
   'Polity': { icon: '⚖️', color: 'from-blue-500 to-indigo-600' },
-  'Economy': { icon: '📊', color: 'from-violet-500 to-purple-600' },
+  'economics': { icon: '📊', color: 'from-violet-500 to-purple-600' },
   'Science & Tech': { icon: '🔬', color: 'from-cyan-500 to-teal-600' },
   'Environment': { icon: '🌱', color: 'from-lime-500 to-green-600' },
   'Current Affairs': { icon: '📰', color: 'from-red-500 to-rose-600' },

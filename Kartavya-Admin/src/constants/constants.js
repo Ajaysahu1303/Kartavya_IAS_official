@@ -1,5 +1,5 @@
 export const categories = [
-  'History', 'Geography', 'Polity', 'Economy', 'Science & Tech',
+  'History', 'Geography', 'Polity', 'economics', 'Science & Tech',
   'Environment', 'Current Affairs', 'Ethics', 'Essay', 'CSAT',
 ];
 
